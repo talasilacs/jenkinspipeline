@@ -23,7 +23,8 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying in Windows Production....'
+                echo 'Deploying on Linux PreProduction....'
+                build job: '3-PipelineAsCode-Prod'
             }
         }
     }
