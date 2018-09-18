@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Deploy to Staging') {
             steps {
-                build-job: '2-PipelibeAsCode-Dev'
+                build job: '2-PipelibeAsCode-Dev'
             }
         }
         stage('Deploy') {
