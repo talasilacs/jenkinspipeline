@@ -15,9 +15,9 @@ pipeline {
             }
 
         }
-        stage('Test') {
+        stage('Deploy to Staging') {
             steps {
-                echo 'Testing..'
+                build-job: '2-PipelibeAsCode-Dev'
             }
         }
         stage('Deploy') {
