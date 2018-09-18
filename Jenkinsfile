@@ -21,11 +21,25 @@ pipeline {
                 build job: '2-PipelineAsCode-Dev'
             }
         }
-        stage('Deploy to Production') {
-            steps {
-                echo 'Deploying on Windows Production...'
+        stage ('Deploy to Production'){
+            steps{
+                timeout(time:5, unit:'DAYS'){
+                    input message:'Approve PRODUCTION Deployment?'
+                }
+
                 build job: '3-PipelinAsCode-Prod'
             }
+            post {
+                success {
+                    echo 'Code deployed to Production.'
+                }
+
+                failure {
+                    echo ' Deployment failed.'
+                }
+            }
         }
+        
+
     }
 }
