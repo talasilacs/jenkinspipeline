@@ -17,12 +17,13 @@ pipeline {
         }
         stage('Deploy to Staging') {
             steps {
+                echo 'Deploying on Linux PreProduction....'
                 build job: '2-PipelineAsCode-Dev'
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                echo 'Deploying in Windows Production....'
             }
         }
     }
