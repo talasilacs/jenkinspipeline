@@ -4,7 +4,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                def shell(command) {
+                    return bat(returnStdout: true, script: "sh -x -c \"mvn clean package\"").trim()
+                }
+            
             }
         }
         stage('Test') {
